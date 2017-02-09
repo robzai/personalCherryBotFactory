@@ -1,7 +1,12 @@
 <div class="row">
-    <div class="span3"><img src="/pix/{mug}" title="{who}"/></div>
+    <div class="span3"><img src="/pix/{pic}"/></div>
     <div class="span8 offset1">
-        <p class="lead">{what}</p><br/>
-        <p class="text-right">{who}</p>
+		<ul>
+			<li>CA : {CA}</li>
+			<li>PLANT: {plant}</li>
+			<li>Date&Time Build: {date}</li>
+			<li>Unit Price: {unitprice}</li>
+		</ul>
     </div>
 </div>
+
