@@ -5,29 +5,29 @@ class Parts extends CI_Model {
 	
 	var $data = array(
 		array('id' => '1', 'CA' => '09AFB6', 'pic' => 'parts/a1.jpeg', 'plant' => 'a',
-			'date' => '', 'unitprice' => ''),
+			'date' => '', 'unitprice' => '', 'type' => 'top'),
 		array('id' => '2', 'CA' => '000000', 'pic' => 'parts/a1.jpeg', 'plant' => 'b',
-			'date' => '', 'unitprice' => ''),
+			'date' => '', 'unitprice' => '', 'type' => 'top'),
 		array('id' => '3', 'CA' => '06BFB6', 'pic' => 'parts/b1.jpeg', 'plant' => 'a',
-			'date' => '', 'unitprice' => ''),
+			'date' => '', 'unitprice' => '', 'type' => 'top'),
 		array('id' => '4', 'CA' => '789034', 'pic' => 'parts/b2.jpeg', 'plant' => 'a',
-			'date' => '', 'unitprice' => ''),
+			'date' => '', 'unitprice' => '', 'type' => 'torso'),
 		array('id' => '5', 'CA' => 'AABB900', 'pic' => 'parts/c2.jpeg', 'plant' => '',
-			'date' => '', 'unitprice' => ''),
+			'date' => '', 'unitprice' => '', 'type' => 'torso'),
 		array('id' => '6', 'CA' => '327612', 'pic' => 'parts/c3.jpeg', 'plant' => '',
-			'date' => '', 'unitprice' => ''),
+			'date' => '', 'unitprice' => '', 'type' => 'bottom'),
 		array('id' => '7', 'CA' => 'ABCDEF', 'pic' => 'parts/c3.jpeg', 'plant' => '',
-			'date' => '', 'unitprice' => ''),
+			'date' => '', 'unitprice' => '', 'type' => 'bottom'),
 		array('id' => '8', 'CA' => '001122', 'pic' => 'parts/r1.jpeg', 'plant' => '',
-			'date' => '', 'unitprice' => ''),
+			'date' => '', 'unitprice' => '', 'type' => 'top'),
 		array('id' => '9', 'CA' => '9006732', 'pic' => 'parts/r2.jpeg', 'plant' => '',
-			'date' => '', 'unitprice' => ''),
+			'date' => '', 'unitprice' => '', 'type' => 'torso'),
 		array('id' => '10', 'CA' => 'ADC2324', 'pic' => 'parts/r3.jpeg', 'plant' => '',
-			'date' => '', 'unitprice' => ''),
+			'date' => '', 'unitprice' => '', 'type' => 'bottom'),
 		array('id' => '11', 'CA' => '9078675', 'pic' => 'parts/w2.jpeg', 'plant' => '',
-			'date' => '', 'unitprice' => ''),
+			'date' => '', 'unitprice' => '', 'type' => 'torso'),
 		array('id' => '12', 'CA' => 'AD4520', 'pic' => 'parts/w3.jpeg', 'plant' => '',
-			'date' => '', 'unitprice' => '')
+			'date' => '', 'unitprice' => '', 'type' => 'bottom')
 	);
 	// Constructor
 	public function __construct()
@@ -44,6 +44,11 @@ class Parts extends CI_Model {
 				return $record;
 		return null;
 	}
+
+	public function count(){
+        return sizeof($this->data);
+    }
+
 	// retrieve all of the quotes
 	public function all()
 	{
@@ -58,5 +63,20 @@ class Parts extends CI_Model {
     public function last()
     {
         return $this->data[sizeof($this->data)-1];
+    }
+
+    public function getType($which){
+        $partArray = array ();
+        foreach ($this->data as $record)
+        {
+            if ($record['type'] == $which){
+                $partArray[] = array (
+                    'pic' => $record['pic'],
+                    'link' => $record['id'] );
+            }
+        }
+        return $partArray;
+
+
     }
 }
