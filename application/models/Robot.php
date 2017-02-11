@@ -1,6 +1,6 @@
 <?php
 
-class Parts extends CI_Model {
+class Robot extends CI_Model {
 	
     var $data = array(
         array('id' => '1', 'top' => '1', 'torso' => '9', 'bottom' => '6', 'pic' => 'bots/a.jpeg', 
