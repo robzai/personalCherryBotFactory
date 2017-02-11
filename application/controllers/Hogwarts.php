@@ -33,6 +33,23 @@ class Hogwarts extends Application
 		$this->render();
 		
 	}
+	
+	public function index(){
+            
+            // this is the view we want shown
+            $this->data['pagebody'] = 'justone';
+			
+			$parts_num = sizeof($this->parts->all())
+			//$robots_num =
+			//$spend =
+			//$earn = 
+            
+            $this->data = array_merge($this->data, $this->quotes->get(2));
+
+            $this->render();
+    }
+	
+	
 	/*
         
         public function shucks(){
