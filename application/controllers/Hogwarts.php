@@ -34,6 +34,7 @@ class Hogwarts extends Application
 		
 	}
 	
+	/*
 	public function index(){
             
             // this is the view we want shown
@@ -47,7 +48,7 @@ class Hogwarts extends Application
             $this->data = array_merge($this->data, $this->quotes->get(2));
 
             $this->render();
-    }
+    }*/
 	
 	
 	/*
