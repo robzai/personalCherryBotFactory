@@ -20,16 +20,18 @@
 
 
 
-<div class="row">
-    <h2>Assembly</h2>
+<div class="row" style="font-family:title">
+    <h2>Assembly&Return</h2>
 </div>
 <div class="row">
     <div class="wrapper" style="color:#FFFFFF">
         <h2>Top</h2>
     </div>
     {top}
-    <div class="span4"><a href="/part/detail/{link}"><img src="/pix/{pic}" /></a>
-        <input type="checkbox" name="checkbox" id="checkbox{id}" value="value"></div>
+    <div class="span4" style="text-align: center;">
+		<a href="/part/detail/{link}"><img src="/pix/{pic}" /></a>
+        <input type="checkbox" name="checkbox" id="checkbox{id}" value="value">
+	</div>
     {/top}
 </div>
 
@@ -39,8 +41,10 @@
         <h2>Torso</h2>
     </div>
     {torso}
-    <div class="span4"><a href="/part/detail/{link}"><img src="/pix/{pic}" /></a>
-        <input type="checkbox" name="checkbox" id="checkbox{id}" value="value"></div>
+    <div class="span4" style="text-align: center;">
+		<a href="/part/detail/{link}"><img src="/pix/{pic}" /></a>
+        <input type="checkbox" name="checkbox" id="checkbox{id}" value="value">
+	</div>
     {/torso}
 </div>
 
@@ -50,8 +54,10 @@
         <h2>Bottom</h2>
     </div>
     {bottom}
-    <div class="span4"><a href="/part/detail/{link}"><img src="/pix/{pic}" /></a>
-        <input type="checkbox" name="checkbox" id="checkbox{id}" value="value"></div>
+    <div class="span4" style="text-align: center;">
+		<a href="/part/detail/{link}"><img src="/pix/{pic}" /></a>
+        <input type="checkbox" name="checkbox" id="checkbox{id}" value="value">
+	</div>
     {/bottom}
 </div>
 
