@@ -1,5 +1,5 @@
 <div class="row">
-	<h2>Parts</h2>
+	<h2  style="font-family:title">Parts</h2>
 </div>
 <div class="row">
     {id}

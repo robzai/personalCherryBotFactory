@@ -25,7 +25,6 @@ class Hogwarts extends Application
             $countEarned = $this->histories->getEarned();
             $data = array('parts'=> $countPatrs, 'bots' => $countBots, 'spent' => $countSpent
                 , 'earned' => $countEarned);
-            
             $this->data = array_merge($this->data, $data);
             $this->render();
 		
