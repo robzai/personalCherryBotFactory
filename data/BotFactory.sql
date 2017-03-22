@@ -32,8 +32,8 @@ CREATE TABLE `robot` (
   `top` int(8) DEFAULT NULL,
   `torso` int(8) DEFAULT NULL,
   `bottom` int(8) DEFAULT NULL,
-  `pic` varchar(6) DEFAULT NULL,
-  `date` date(6) DEFAULT NULL,
+  `pic` varchar(20) DEFAULT NULL,
+  `date` date DEFAULT NULL,
   `unitprice` int(6) DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -50,21 +50,34 @@ INSERT INTO `flags` (`id`, `meaning`) VALUES
 -- Table structure for table `parts`
 --
 
-DROP TABLE IF EXISTS `groups`;
-CREATE TABLE `groups` (
-  `id` int(1) NOT NULL,
-  `name` varchar(6) DEFAULT NULL
+DROP TABLE IF EXISTS 'parts';
+CREATE TABLE 'parts' (
+  'id' int(8) NOT NULL,
+  'ca' varchar(10) NOT NULL,
+  'pic' varchar(10) DEFAULT NULL,
+  'plant' varchar(20) DEFAULT NULL,
+  'date' date DEFAULT NULL,
+  'unitprice' int(10) DEFAULT NULL,
+  'type' varchar(20) DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `parts`
 --
 
-INSERT INTO `groups` (`id`, `name`) VALUES
-(1, 'house'),
-(2, 'school'),
-(3, 'work'),
-(4, 'family');
+INSERT INTO 'parts' ('id', 'ca', 'pic', 'plant', 'date', 'unitprice', 'type') VALUES
+(1, '12234A1', 'a1', 'Apple', 2010-01-01, 9, 'top'),
+(2, '00002A1', 'a1', 'Durian', 2016-01-12, 10, 'top'),
+(3, '06BFB1', 'b1', 'Apple', 2017-01-01, 10, 'top'),
+(4, '7890B2', 'b2', 'Apple', 2016-01-12, 7, 'torso'),
+(5, 'AABB0C2', 'c2', 'Banana', 2016-03-12, 5, 'torso'),
+(6, '3276C3', 'c3', 'Durian', 2016-01-12, 8, 'bottom'),
+(7, 'ABCDC3', 'c3', 'Red Umbrella', 2016-01-12, 8, 'bottom'),
+(8, '0011R1', 'r1', 'Banana', 2016-04-05, 9, 'top'),
+(9, '90062R2', 'r2', 'Running man', 2016-01-12, 10, 'torso'),
+(10, 'ADC23R3', 'r3', 'Red Umbrella', 2016-01-12, 20, 'bottom'),
+(11, '90786W2', 'w2', 'Durian', 2017-01-12, 7, 'torso'),
+(12, 'AD454W3', 'w3', 'Banana', 2017-01-12, 12, 'bottom');
 
 -- --------------------------------------------------------
 
@@ -170,6 +183,8 @@ INSERT INTO `tasks` (`id`, `task`, `priority`, `size`, `group`, `deadline`, `sta
 --
 -- Indexes for dumped tables
 --
+ALTER TABLE `parts`
+  ADD PRIMARY KEY ('id');
 
 --
 -- Indexes for table `flags`
