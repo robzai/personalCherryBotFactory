@@ -29,20 +29,23 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `robot`;
 CREATE TABLE `robot` (
   `id` int(8) NOT NULL,
-  `top` int(8) DEFAULT NULL,
-  `torso` int(8) DEFAULT NULL,
-  `bottom` int(8) DEFAULT NULL,
-  `pic` varchar(6) DEFAULT NULL,
-  `date` date(6) DEFAULT NULL,
-  `unitprice` int(6) DEFAULT NULL,
+  `top` varchar(10) DEFAULT NULL,
+  `torso` varchar(10) DEFAULT NULL,
+  `bottom` varchar(10) DEFAULT NULL,
+  --`pic` varchar(50) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `unitprice` int(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `robot`
 --
 
-INSERT INTO `flags` (`id`, `meaning`) VALUES
-(1, 'Urgent');
+INSERT INTO `robot` ( `id`,`top`,`torso`,`bottom`,`date`,`unitprice`）
+  VALUES
+  (1, '12234A1', '90062R2', '3276C3', '2012-1-1', 1),
+  (2, '00002A1', '7890B2', 'ABCDC3', '2012-1-1', 1),
+  (3, '06BFB1', 'AABB0C2', 'ADC23R3', '2012-1-1', 1);
 
 -- --------------------------------------------------------
 
@@ -172,12 +175,10 @@ INSERT INTO `tasks` (`id`, `task`, `priority`, `size`, `group`, `deadline`, `sta
 --
 
 --
--- Indexes for table `flags`
+-- Indexes for table `robot`
 --
-ALTER TABLE `flags`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id` (`id`),
-  ADD UNIQUE KEY `id_2` (`id`);
+ALTER TABLE `robot`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `groups`
