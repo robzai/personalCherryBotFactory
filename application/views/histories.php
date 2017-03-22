@@ -1,5 +1,5 @@
 <div class="row">
-	<h2>History</h2>
+	<h2  style="font-family:title">History</h2>
 </div>
 <table class="table sortable">
     <thead>
