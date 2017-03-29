@@ -77,7 +77,7 @@ class Histories extends CI_Model {
 
 		foreach ($this->data as $record)
 		{
-			if (($record['type'] == "Sold Robot") || $record['type'] == "Return Part(s)"))
+			if (($record['type'] == "Sold Robot") || ($record['type'] == "Return Part(s)"))
 			{
 				$totalEarned += $record['price'];
 			}
