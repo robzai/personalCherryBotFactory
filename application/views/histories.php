@@ -1,6 +1,7 @@
 <div class="row">
 	<h2  style="font-family:title">History</h2>
 </div>
+
 <table class="table sortable">
     <thead>
       <tr>
