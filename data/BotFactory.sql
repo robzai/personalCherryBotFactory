@@ -88,20 +88,49 @@ INSERT INTO 'parts' ('id', 'ca', 'pic', 'plant', 'date', 'unitprice', 'type') VA
 -- Table structure for table `histories`
 --
 
-DROP TABLE IF EXISTS `priorities`;
-CREATE TABLE `priorities` (
-  `id` int(1) NOT NULL,
-  `name` varchar(6) DEFAULT NULL
+DROP TABLE IF EXISTS 'histories';
+CREATE TABLE 'histories' (
+  'id' int NOT NULL AUTO_INCREMENT,
+  'type' varchar(20) DEFAULT NULL,
+  'partstype' varchar(40) DEFAULT NULL,
+  'date' varchar(40) DEFAULT NULL,
+  'price' int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `histories`
 --
 
-INSERT INTO `priorities` (`id`, `name`) VALUES
-(1, 'low'),
-(2, 'medium'),
-(3, 'high');
+INSERT INTO 'histories' ('type', 'partstype', 'date', 'price')
+  VALUES
+  ('Purchased Box', 'a1 b2 c3 d1 e2 f3 g1 h2 i3 j1', '10:30pm April 15 2014', 100),
+  ('Purchased Box', 'c1 b2 q3 d1 e2 l3 g2 p2 x3 m1', '08:30pm April 17 2014', 100),
+  ('Purchased Box', 'x1 b2 c3 d1 e2 f3 g1 h2 i3 j1', '07:30pm April 12 2014', 100),
+  ('Purchased Box', 'z1 b1 c3 y1 x2 f3 g2 k2 i3 n1', '06:30pm April 11 2014', 100),
+  ('Purchased Box', 'w1 q1 e3 r1 x3 f3 g2 k1 i1 n2', '07:30pm April 11 2014', 100),
+  ('Purchased Box', 'z1 w1 p3 n1 e2 r3 g2 c2 e3 n1', '08:30pm April 11 2014', 100),
+  ('Robot Assembly', 'a2 b1 c3', '05:30pm April 15 2014', 0),
+  ('Robot Assembly', 'c1 c2 c3', '04:30pm April 19 2014', 0),
+  ('Robot Assembly', 'p1 b2 z3', '03:30pm April 21 2014', 0),
+  ('Robot Assembly', 'z1 j2 m3', '01:30am April 24 2014', 0),
+  ('Robot Assembly', 'e1 j2 w3', '03:30am April 21 2014', 0),
+  ('Robot Assembly', 'p1 x2 q3', '06:30am April 22 2014', 0),
+  ('Robot Assembly', 'b1 t2 y3', '07:30am April 23 2014', 0),
+  ('Return Part(s)', 'a2 b1', '07:30am April 28 2014', 10),
+  ('Return Part(s)', 'p2 b3 c3', '03:50am April 29 20144', 15),
+  ('Return Part(s)', 'r2 q3 e3', '05:50am April 20 2014', 15),
+  ('Return Part(s)', 'm2 n3 y3', '08:50am April 18 2014', 15),
+  ('Return Part(s)', 'p3', '06:50am April 15 2014', 5),
+  ('Return Part(s)', 'p1 b2 c2 d2', '01:50am April 14 2014', 20),
+  ('Sold Robot', 'p1 b2 c3', '03:30am April 28 2014', 25),
+  ('Sold Robot', 'a1 b2 c3', '04:30am April 26 2014', 25),
+  ('Sold Robot', 'a1 a2 a3', '05:30am April 29 2014', 50),
+  ('Sold Robot', 'b1 b2 b3', '06:30pm April 21 2014', 50),
+  ('Sold Robot', 'm1 m2 m3', '11:30am April 20 2014', 100),
+  ('Sold Robot', 'm1 n2 o3', '12:30am April 23 2014', 50),
+  ('Sold Robot', 'w1 w2 w3', '04:30am April 24 2014', 200),
+  ('Sold Robot', 'w1 y2 z3', '01:30am April 25 2014', 100);
+
 
 -- --------------------------------------------------------
 
