@@ -41,7 +41,7 @@ CREATE TABLE `robot` (
 -- Dumping data for table `robot`
 --
 
-INSERT INTO `robot` ( `id`,`top`,`torso`,`bottom`,`date`,`unitprice`）
+INSERT INTO `robot` ( `id`,`top`,`torso`,`bottom`,`date`,`uniprice`）
   VALUES
   (1, '12234A1', '90062R2', '3276C3', '2012-1-1', 1),
   (2, '00002A1', '7890B2', 'ABCDC3', '2012-1-1', 1),
