@@ -1,25 +1,10 @@
--- phpMyAdmin SQL Dump
--- version 4.6.3
--- https://www.phpmyadmin.net/
---
+
+-- Cherry RobotFactory Database
 -- Host: localhost
--- Generation Time: Feb 14, 2017 at 08:40 AM
--- Server version: 5.7.13
--- PHP Version: 7.0.8
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `todo`
---
-
 -- --------------------------------------------------------
 DROP DATABASE IF EXISTS RobotFactory;
 CREATE DATABASE RobotFactory;
@@ -40,7 +25,7 @@ CREATE TABLE Robots (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `robot`
+-- Dumping data for table `robots`
 --
 
 
@@ -113,4 +98,3 @@ INSERT INTO Histories (type, partstype, date, price)
   ('Return Part(s)', '90786W2 AD454W3', '07:30am April 28 2014', 10),
   ('Sold Robot', '12234A1 90062R2 276C3', '03:30am April 28 2014', 25),
   ('Sold Robot', '00002A1 7890B2 ABCDC3', '01:30am April 25 2014', 100);
-
