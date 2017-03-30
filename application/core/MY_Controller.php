@@ -11,6 +11,7 @@
  */
 class Application extends CI_Controller
 {
+	//$response = file_get_contents('https://umbrella.jlparry.com/xxx?key=YOUR_API_KEY');
 
 	/**
 	 * Constructor.
@@ -24,6 +25,7 @@ class Application extends CI_Controller
 		//  Set basic view parameters
 		$this->data = array ();
 		$this->data['pagetitle'] = 'Quotes CMS';
+		
 		$this->data['ci_version'] = (ENVIRONMENT === 'development') ? 'CodeIgniter Version <strong>'.CI_VERSION.'</strong>' : '';
 	}
 

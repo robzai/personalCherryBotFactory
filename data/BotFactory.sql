@@ -48,26 +48,29 @@ CREATE TABLE Parts (
   plant varchar(20) DEFAULT NULL,
   date date DEFAULT NULL,
   unitprice int(10) DEFAULT NULL,
-  type varchar(20) DEFAULT NULL
+  type varchar(20) DEFAULT NULL,
+  line varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `parts`
 --
 
-INSERT INTO Parts (id, ca, pic, plant, date, unitprice, type) VALUES
-('12234A1', 'a1', 'Apple', '2010-01-01', 10, 'top'),
-('00002A1', 'a1', 'Durian', '2016-01-12', 10, 'top'),
-('06BFB1', 'b1', 'Apple', '2017-01-01', 10, 'top'),
-('7890B2', 'b2', 'Apple', '2016-01-12', 10, 'torso'),
-('AABB0C2', 'c2', 'Banana', '2016-03-12', 10, 'torso'),
-('3276C3', 'c3', 'Durian', '2016-01-12', 10, 'bottom'),
-('ABCDC3', 'c3', 'Red Umbrella', '2016-01-12', 10, 'bottom'),
-('0011R1', 'r1', 'Banana', '2016-04-05', 10, 'top'),
-('90062R2', 'r2', 'Running man', '2016-01-12', 10, 'torso'),
-('ADC23R3', 'r3', 'Red Umbrella', '2016-01-12', 10, 'bottom'),
-('90786W2', 'w2', 'Durian', '2017-01-12', 10, 'torso'),
-('AD454W3', 'w3', 'Banana', '2017-01-12', 10, 'bottom');
+INSERT INTO Parts (ca, pic, plant, date, unitprice, type, line) VALUES
+('12234A1', 'a1', 'Apple', '2010-01-01', 10, 'top','household'),
+('00002A1', 'a1', 'Durian', '2016-01-12', 10, 'top','household'),
+('06BFB1', 'b1', 'Apple', '2017-01-01', 10, 'top','household'),
+('7890B2', 'b2', 'Apple', '2016-01-12', 10, 'torso','household'),
+('AABB0C2', 'c2', 'Banana', '2016-03-12', 10, 'torso','household'),
+('AABB043', 'm1', 'Banana', '2016-03-12', 10, 'top','butler'),
+('AABB078', 'm2', 'Banana', '2016-03-12', 10, 'torso','butler'),
+('3276C3', 'c3', 'Durian', '2016-01-12', 10, 'bottom','household'),
+('ABCDC3', 'c3', 'Red Umbrella', '2016-01-12', 10, 'bottom','household'),
+('0011R1', 'r1', 'Banana', '2016-04-05', 10, 'top','butler'),
+('90062R2', 'r2', 'Running man', '2016-01-12', 10, 'torso','butler'),
+('ADC23R3', 'r3', 'Red Umbrella', '2016-01-12', 10, 'bottom','butler'),
+('90786W2', 'w2', 'Durian', '2017-01-12', 10, 'torso','companion'),
+('AD454W3', 'w3', 'Banana', '2017-01-12', 10, 'bottom','companion');
 
 -- --------------------------------------------------------
 
