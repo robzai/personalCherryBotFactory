@@ -2,8 +2,11 @@
 	<h2 class="text-center">Parts</h2>
 </div>
 <div class="row">
+	<a href=""></a>
+</div>
+<div class="row">
     {id}
-    <div class="span4" class="toCentral">
+    <div class="span4">
 		<a href="/part/detail/{link}"><img src="/pix/parts/{pic}.jpeg" /></a>
 		<br/>
 		<br/>
