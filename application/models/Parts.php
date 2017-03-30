@@ -45,23 +45,34 @@ class Parts extends MY_Model {
 		return null;
 	}
 	
-	// return the number of parts
-	public function count(){
-        return sizeof($this->data);
-    }
-	
-	//get the part's id and pic
-	public function getPart($which){
-        $partArray = array ();
-        foreach ($this->data as $record)
+	public function getPicByCA($which) {
+		$partArray = array ();
+        foreach ($this->all() as $record)
         {
-            if ($record['type'] == $which){
+            if ($record->ca == $which){
                 $partArray[] = array (
-                    'pic' => $record['pic'],
-                    'link' => $record['id'] );
+                    'pic' => $record->pic,
+                );
+				return $partArray;
             }
         }
-        return $partArray;
+		return null;
+        
+	}
+	
+	public function getType($which){
+        $partArray = array ();
+        foreach ($this->all() as $record)
+        {
+            if ($record->type == $which){
+                $partArray[] = array (
+                    'pic' => $record->pic,
+                    'link' => $record->id );
+				return $partArray;
+            }
+        }
+		return null;
+        
     }
 	
 	/*
