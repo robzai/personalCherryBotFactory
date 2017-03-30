@@ -40,6 +40,25 @@ class Part extends Application
 		$this->render();
 	
 	}
+
+	
+	public function BuyBoxParts() {
+		
+		$tokenkey = 'https://umbrella.jlparry.com/work/mybuilts?key='.$this->token->getToken()[0];
+		$responseFromMyBuild = file_get_contents($tokenkey);
+		$parse_json_array = json_decode($responseFromMyBuilds);
+		foreach($parse_json_array as $record) {
+			foreach($record as $part) {
+				$finalArray[] = array(
+					"pic" => $part["model"].$part["piece"],
+					"ca" => $part["id"];
+					"line"
+				);
+			}
+		}
+		
+		
+	}
         
 
 }
