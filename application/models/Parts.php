@@ -6,6 +6,7 @@ class Parts extends CI_Model {
 	var $data = array(
 		array('id' => '1', 'CA' => '12234A1', 'pic' => 'a1', 'plant' => 'Apple',
 			'date' => '2010-01-01', 'unitprice' => '10', 'type' => 'top'),
+            
 		array('id' => '2', 'CA' => '00002A1', 'pic' => 'a1', 'plant' => 'Durian',
 			'date' => '2016-01-12', 'unitprice' => '20', 'type' => 'top'),
 		array('id' => '3', 'CA' => '06BFB1', 'pic' => 'b1', 'plant' => 'Apple',

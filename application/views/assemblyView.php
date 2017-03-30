@@ -13,7 +13,7 @@
     <div class="span4" style="text-align: center;">
 		<a href="/part/detail/{link}"><img src="/pix/parts/{pic}.jpeg" /></a>
         <input type="checkbox" name="checkbox" id="checkbox{id}" value="value">
-	</div>
+    </div>
     {/top}
 </div>
 
