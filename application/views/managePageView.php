@@ -10,10 +10,10 @@
     <div class="wrapper" style="color:#FFFFFF">
         <h2>Register</h2>
     </div>
-    <form>
+    <form method ="POST" action="/managepage/register">
         <div class="form-group">
           <label for="password">Password:</label>
-          <input type="password" class="form-control" id="password">
+          <input type="password" class="form-control" id="password" name="password">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
