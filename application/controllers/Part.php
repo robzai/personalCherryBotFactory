@@ -5,6 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Part extends Application
 {
 	private $items_per_page = 20;
+	private $responseFromMyBuild = file_get_contents('https://umbrella.jlparry.com/work/mybuilts?key=4a7ce8');
+	private $responseFrom = file_get_contents('https://umbrella.jlparry.com/work/mybuilts?key=4a7ce8');
 	
 	/**
 	 * First for our app
@@ -17,7 +19,11 @@ class Part extends Application
         $finalParts = array(); // start with an empty extract
 		$tempParts = array();
 		foreach($records as $singlePart) {
-			$tempParts[] = array('pic' => $singlePart->pic, 'link'=> $singlePart->id);
+			$model = str_split($singlePart->pic)[0];
+			$tempParts[] = array('pic' => $singlePart->pic, 
+								'link'=> $singlePart->id,
+								'line' => $singlePart -> line,
+								'model' => strtoupper($model));
 		}
 		$this->data['id'] = $tempParts;
 		$this->render();
