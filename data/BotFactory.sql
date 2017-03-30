@@ -10,6 +10,14 @@ DROP DATABASE IF EXISTS RobotFactory;
 CREATE DATABASE RobotFactory;
 USE RobotFactory;
 
+DROP TABLE IF EXISTS token;
+CREATE TABLE token (
+	tokenCode VARCHAR(10) NOT NULL,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO token VALUES("25d875");
+
+
 --
 -- Table structure for table `robots`
 --
@@ -57,6 +65,7 @@ CREATE TABLE Parts (
 --
 
 INSERT INTO Parts (ca, pic, plant, date, unitprice, type, line) VALUES
+
 ('12234A1', 'a1', 'Apple', '2010-01-01', 10, 'top','household'),
 ('00002A1', 'a1', 'Durian', '2016-01-12', 10, 'top','household'),
 ('06BFB1', 'b1', 'Apple', '2017-01-01', 10, 'top','household'),
