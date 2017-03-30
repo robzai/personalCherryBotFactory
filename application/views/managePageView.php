@@ -17,18 +17,21 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
+    {message}
 </div>
 
 <div class="row">
     <div class="wrapper" style="color:#FFFFFF">
         <h2>Sell assembled bot</h2>
     </div>
-    {top}
+    {robots}
     <div class="span4" style="text-align: center;">
-        <a href="/part/detail/{link}"><img src="/pix/parts/{pic}.jpeg" /></a>
+        <a href="/part/detail/{link}"><img src="/pix/parts/{top}.jpeg" /></a>
+        <a href="/part/detail/{link}"><img src="/pix/parts/{torso}.jpeg" /></a>
+        <a href="/part/detail/{link}"><img src="/pix/parts/{bottom}.jpeg" /></a>
         <input type="radio" name="gender" value="checkbox{id}"> checkbox{id}
     </div>
-    {/top}
+    {/robots}
 </div>
 
 <div class="row">
