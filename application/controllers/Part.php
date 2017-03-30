@@ -4,30 +4,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Part extends Application
 {
+	private $items_per_page = 20;
 	
 	/**
 	 * First for our app
 	 */
 	public function index()
-	{
-		// this is the view we want shown
+    {
 		$this->data['pagebody'] = 'parts';
-
-		// build the list of authors, to pass on to our view
-		$source = $this->parts->all();
-		$parts = array ();
-		
-		foreach ($source as $record)
-		{
-			$parts[] = array (
-                              'pic' => $record['pic'], 
-							  'link' => $record['id'],
-                             );
+        //$this->page(1);
+		$records = $this->parts->getAllParts(); // get all the parts
+        $finalParts = array(); // start with an empty extract
+		$tempParts = array();
+		foreach($records as $singlePart) {
+			$tempParts[] = array('pic' => $singlePart->pic, 'link'=> $singlePart->id);
 		}
-		$this->data['id'] = $parts;
-
+		$this->data['id'] = $tempParts;
 		$this->render();
-	}
+    }
 	
 	public function detail($id)
 	{
@@ -35,7 +29,7 @@ class Part extends Application
 		$this->data['pagebody'] = 'justone';
 		
 		// build the list of authors, to pass on to our view
-		$source = $this->parts->get($id);
+		$source = $this->parts->getPartDetail($id);
 		$this->data = array_merge($this->data, $source);
 		$this->render();
 	

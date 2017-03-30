@@ -3,8 +3,8 @@
     <div class="span3"><img src="/pix/parts/{pic}.jpeg"/></div>
     <div class="span8 offset1">
 		<ul>
-			<li>CA : {CA}</li>
-			<li>PLANT: {plant}</li>
+			<li>CA : {ca}</li>
+			<li>Plate: {plate}</li>
 			<li>Date&Time Build: {date}</li>
 			<li>Unit Price: {unitprice}</li>
 		</ul>

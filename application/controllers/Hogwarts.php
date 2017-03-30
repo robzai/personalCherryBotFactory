@@ -22,12 +22,12 @@ class Hogwarts extends Application
             $this->data['pagebody'] = 'homepage';
             
             $data = array();
-            $countPatrs = $this->parts->count();
-            $countBots = $this->robot->count();
-            $countSpent = $this->histories->getSpent();
-            $countEarned = $this->histories->getEarned();
-            $data = array('parts'=> $countPatrs, 'bots' => $countBots, 'spent' => $countSpent
-                , 'earned' => $countEarned);
+            //$countPatrs = $this->parts->count();
+            //$countBots = $this->robot->count();
+            //$countSpent = $this->histories->getSpent();
+            //$countEarned = $this->histories->getEarned();
+            //$data = array('parts'=> $countPatrs, 'bots' => $countBots, 'spent' => $countSpent
+                //, 'earned' => $countEarned);
             $this->data = array_merge($this->data, $data);
             $this->render();
 		
