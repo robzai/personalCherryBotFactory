@@ -56,7 +56,7 @@ CREATE TABLE Parts (
 -- Dumping data for table `parts`
 --
 
-INSERT INTO Parts (ca, pic, plant, date, unitprice, type) VALUES
+INSERT INTO Parts (ca, pic, plant, date, unitprice, type, line) VALUES
 ('12234A1', 'a1', 'Apple', '2010-01-01', 10, 'top','household'),
 ('00002A1', 'a1', 'Durian', '2016-01-12', 10, 'top','household'),
 ('06BFB1', 'b1', 'Apple', '2017-01-01', 10, 'top','household'),
