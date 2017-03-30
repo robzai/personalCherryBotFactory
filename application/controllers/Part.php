@@ -5,8 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Part extends Application
 {
 	private $items_per_page = 20;
-	private $responseFromMyBuild = file_get_contents('https://umbrella.jlparry.com/work/mybuilts?key=4a7ce8');
-	private $responseFrom = file_get_contents('https://umbrella.jlparry.com/work/mybuilts?key=4a7ce8');
+	//private $responseFromMyBuild = file_get_contents('https://umbrella.jlparry.com/work/mybuilts?key=4a7ce8');
+	//private $responseFrom = file_get_contents('https://umbrella.jlparry.com/work/mybuilts?key=4a7ce8');
 	
 	/**
 	 * First for our app
