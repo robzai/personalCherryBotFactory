@@ -1,13 +1,14 @@
 <?php
 class Token extends MY_Model {
-	public function __construct()
+    public function __construct()
     {
-         parent::__construct('Toke', 'tokenCode');
+        parent::__construct('Token', 'id');
     }
 	
-	public function getToke() {
-		return $this->first();
-	}
+    public function getToke() {
+        return $this->first();
+    }
+
 }
 
 ?>
