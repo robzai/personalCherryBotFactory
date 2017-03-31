@@ -21,7 +21,8 @@ class Part extends Application
 		foreach($records as $singlePart) {
 			$model = str_split($singlePart->pic)[0];
 			$tempParts[] = array('pic' => $singlePart->pic, 
-								'link'=> $singlePart->id,
+								'link' => $singlePart->id,
+                                'ca' => $singlePart->ca,
 								'line' => $singlePart -> line,
 								'model' => strtoupper($model));
 		}
