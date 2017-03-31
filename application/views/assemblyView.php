@@ -6,7 +6,7 @@
     <h2>Assembly&Return</h2>
 </div>
 <div class="row">
-    <div class="wrapper" style="color:#FFFFFF">
+    <div class="wrapper">
         <h2>Top</h2>
     </div>
     {top}

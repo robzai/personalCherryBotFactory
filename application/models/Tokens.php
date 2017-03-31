@@ -1,5 +1,5 @@
 <?php
-class Token extends MY_Model {
+class Tokens extends MY_Model {
 	public function __construct()
     {
          parent::__construct('Token', 'tokenCode');

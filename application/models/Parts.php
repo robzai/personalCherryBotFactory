@@ -64,10 +64,10 @@ class Parts extends MY_Model {
                 $partArray[] = array (
                     'pic' => $record->pic,
                     'link' => $record->id );
-				return $partArray;
             }
+			
         }
-		return null;
+		return $partArray;
     }
 	
 	public function getLastId() {

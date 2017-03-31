@@ -1,2 +1,2 @@
 <?php
-var_dump(preg_match('/[a-l]/','b'));
+var_dump(preg_match('/[a-l]/','a'));

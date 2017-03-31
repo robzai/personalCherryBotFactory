@@ -40,11 +40,69 @@ class Part extends Application
 		$this->render();
 	
 	}
+	
+	public function BuildPart() {
+		$tokenkey = 'https://umbrella.jlparry.com/work/mybuilds?key=1f2339';
+		$response = file_get_contents($tokenkey);
+		$parse_json_array = json_decode($response);
+		var_dump($parse_json_array);
+		$line = "";
+		$type = "";
+		$finalArray =array();
+		$infoArrayforHistiry = array();
+		$castr = "";
+		foreach($parse_json_array as $record) {
+			$part = get_object_vars($record);
+			if(preg_match('/[a-l]/',$part["model"]) === 1) {
+				$line = "household";
+			} else if(preg_match('/[m-v]/',$part["model"]) === 1) {
+				$line = "cutler";
+			} else if(preg_match('/[w-z]/',$part["model"]) === 1) {
+				$line = "companion";
+			} 
+				var_dump($line);
+			if($part["piece"] == 1) {
+				$type = "head";
+			} else if ($part["piece"] == 2) {
+				$type = "torso";
+			} else if ($part["piece"] == 3) {
+				$type = "bottom";
+			}
+			
+			$castr .= $part["id"]." ";
+			
+			$finalArray[] = array(
+				'pic' => $part["model"].$part["piece"],
+				'ca' => $part["id"],
+				'line' => $line,
+				'unitprice' => 10,
+				'type' => $type,
+				'plant' => $part["plant"],
+				'date' => $part["stamp"]
+			);
+			
+		}
+		//var_dump();
+		
+		foreach($finalArray as $data) {
+			
+			$this->db->insert("parts", $data);
+		}
+
+		$infoArrayforHistiry[] = array(
+			'date' => date("Y-m-d h:m:s", time()),
+			'partstype' => $castr,
+			'type' => "Build Parts",
+			'price' => 0
+		);
+		$this -> db -> insert("histories", $infoArrayforHistiry[0]);
+		redirect('/part');
+	}
 
 	
 	public function BuyBoxParts() {
 		
-		$tokenkey = 'https://umbrella.jlparry.com/work/buybox?key=40063f';
+		$tokenkey = 'https://umbrella.jlparry.com/work/buybox?key=1f2339';
 		//.$this->token->getToken()["token"];
 		$response = file_get_contents($tokenkey);
 		$parse_json_array = json_decode($response);
@@ -59,7 +117,7 @@ class Part extends Application
 			$part = get_object_vars($record);
 			
 			
-			if(preg_match('[/[a-l]/]',$part['model']) === 1) {
+			if(preg_match('/[a-l]/',$part['model']) === 1) {
 				$line = "household";
 			} else if(preg_match('/[m-v]/',$part['model']) === 1) {
 				$line = "cutler";
