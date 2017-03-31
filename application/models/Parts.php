@@ -46,17 +46,13 @@ class Parts extends MY_Model {
 	}
 	
 	public function getPicByCA($which) {
-		$partArray = array ();
-        foreach ($this->all() as $record)
-        {
-            if ($record->ca == $which){
-                $partArray[] = array (
-                    'pic' => $record->pic,
-                );
-				return $partArray;
+            foreach ($this->all() as $record)
+            {
+                if ($record->ca == $which){
+                    return $record->pic;
+                }
             }
-        }
-		return null;
+            return null;
         
 	}
 	

@@ -32,13 +32,17 @@
         <input type="radio" name="gender" value="checkbox{id}"> checkbox{id}
     </div>
     {/robots}
+    <button type="button" class="btn btn-default">sell</button>
 </div>
 
 <div class="row">
     <div class="wrapper" style="color:#FFFFFF">
         <h2>Reboot the factory</h2>
     </div>
-    <button type="button" class="btn btn-default">Reboot</button>
+    <form method ="POST" action="/managepage/reboot">
+        <button type="submit" class="btn btn-default">Reboot</button>       
+    </form>
+    {reboot}
 </div>
 
 

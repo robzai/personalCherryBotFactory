@@ -50,9 +50,9 @@ class Part extends Application
 		foreach($parse_json_array as $record) {
 			foreach($record as $part) {
 				$finalArray[] = array(
-					"pic" => $part["model"].$part["piece"],
-					"ca" => $part["id"];
-					"line"
+//					"pic" => $part["model"].$part["piece"],
+//					"ca" => $part["id"];
+//					"line"
 				);
 			}
 		}

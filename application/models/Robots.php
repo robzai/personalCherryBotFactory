@@ -2,14 +2,6 @@
 
 class Robots extends MY_Model {
 	
-    var $data = array(
-        array('id' => '1', 'top' => '1', 'torso' => '9', 'bottom' => '6', 'pic' => 'bots/a.jpeg', 
-                'date' => '', 'unitprice' => ''),
-        array('id' => '2', 'top' => '2', 'torso' => '4', 'bottom' => '7', 'pic' => 'bots/b.jpeg', 
-                'date' => '', 'unitprice' => ''),
-        array('id' => '3', 'top' => '3', 'torso' => '5', 'bottom' => '10', 'pic' => 'bots/c.jpeg', 
-                'date' => '', 'unitprice' => '')       
-    );
     // Constructor
     public function __construct()
     {
