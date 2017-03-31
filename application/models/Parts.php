@@ -12,7 +12,7 @@ class Parts extends MY_Model {
     public function rules()
     {
         $config = array(
-			['field' => 'id', 'label' => 'ID', 'rules' => 'integer|max_length[8]'],
+			//['field' => 'id', 'label' => 'ID', 'rules' => 'integer|max_length[8]'],
             ['field' => 'ca', 'label' => 'Certificates', 'rules' => 'string|max_length[8]'],
             ['field' => 'plate', 'label' => 'Manufacturer', 'rules' => 'string|less_than[20]'],
             ['field' => 'type', 'label' => 'Type', 'rules' => 'string|less_than[20]'],
@@ -32,7 +32,7 @@ class Parts extends MY_Model {
 	{
 		$tempParts = array();
 		foreach($this->all() as $singlePart) {
-			if($singlePart->id == $which) {
+			if($singlePart->ca == $which) {
 				$tempParts = array('pic' => $singlePart->pic, 
 								'ca' => $singlePart -> ca,
 								'plate' => $singlePart -> plant,
@@ -72,8 +72,12 @@ class Parts extends MY_Model {
             }
         }
 		return null;
-        
     }
+	
+	public function getLastId() {
+		$partsArray = $this-> all();
+		return $partsArray[$this->size()-1] ->id;
+	}
 	
 	/*
 	// retrieve a single quote

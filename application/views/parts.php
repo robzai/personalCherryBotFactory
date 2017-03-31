@@ -2,7 +2,7 @@
 	<h2 class="text-center">Parts</h2>
 </div>
 <div class="row">
-	<a href=""></a>
+	<div  class="button"> <a href="/part/BuyBoxParts">Buy Box Parts</a></div>
 </div>
 <div class="row">
     {id}

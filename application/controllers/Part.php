@@ -21,7 +21,7 @@ class Part extends Application
 		foreach($records as $singlePart) {
 			$model = str_split($singlePart->pic)[0];
 			$tempParts[] = array('pic' => $singlePart->pic, 
-								'link'=> $singlePart->id,
+								'link'=> $singlePart->ca,
 								'line' => $singlePart -> line,
 								'model' => strtoupper($model));
 		}
@@ -29,13 +29,13 @@ class Part extends Application
 		$this->render();
     }
 	
-	public function detail($id)
+	public function detail($ca)
 	{
 		// this is the view we want shown
 		$this->data['pagebody'] = 'justone';
 		
 		// build the list of authors, to pass on to our view
-		$source = $this->parts->getPartDetail($id);
+		$source = $this->parts->getPartDetail($ca);
 		$this->data = array_merge($this->data, $source);
 		$this->render();
 	
@@ -44,20 +44,68 @@ class Part extends Application
 	
 	public function BuyBoxParts() {
 		
-		$tokenkey = 'https://umbrella.jlparry.com/work/mybuilts?key='.$this->token->getToken()[0];
-		$responseFromMyBuild = file_get_contents($tokenkey);
-		$parse_json_array = json_decode($responseFromMyBuilds);
+		$tokenkey = 'https://umbrella.jlparry.com/work/buybox?key=40063f';
+		//.$this->token->getToken()["token"];
+		$response = file_get_contents($tokenkey);
+		$parse_json_array = json_decode($response);
+		$line = "";
+		$type = "";
+		$finalArray =array();
+		$infoArrayforHistiry = array();
+		$castr = "";
+		//var_dump($this ->parts->getLastId());
 		foreach($parse_json_array as $record) {
-			foreach($record as $part) {
-				$finalArray[] = array(
-					"pic" => $part["model"].$part["piece"],
-					"ca" => $part["id"];
-					"line"
-				);
+			
+			$part = get_object_vars($record);
+			
+			
+			if(preg_match('[/[a-l]/]',$part['model']) === 1) {
+				$line = "household";
+			} else if(preg_match('/[m-v]/',$part['model']) === 1) {
+				$line = "cutler";
+			} else if(preg_match('/[w-z]/',$part['model']) === 1) {
+				$line = "companion";
+			} 
+				
+			if($part["piece"] == 1) {
+				$type = "head";
+			} else if ($part["piece"] == 2) {
+				$type = "torso";
+			} else if ($part["piece"] == 3) {
+				$type = "bottom";
 			}
+			
+			$castr .= $part["id"]." ";
+			
+			$finalArray[] = array(
+				'pic' => $part["model"].$part["piece"],
+				'ca' => $part["id"],
+				'line' => $line,
+				'unitprice' => 10,
+				'type' => $type,
+				'plant' => $part["plant"],
+				'date' => $part["stamp"]
+			);
+			
+			
+			
+			//$this->parts->insertParts($finalArray);
+				//echo $part["model"].$part["piece"];
 		}
 		
-		
+		foreach($finalArray as $data) {
+			
+			$this->db->insert("parts", $data);
+		}
+
+		$infoArrayforHistiry[] = array(
+			'date' => date("Y-m-d h:m:s", time()),
+			'partstype' => $castr,
+			'type' => "Purchased Box",
+			'price' => 100
+		);
+		$this -> db -> insert("histories", $infoArrayforHistiry[0]);
+		redirect('/part');
 	}
         
 
