@@ -20,7 +20,7 @@ class Part extends Application
 		$tempParts = array();
 		foreach($records as $singlePart) {
 			$model = str_split($singlePart->pic)[0];
-			$tempParts[] = array('pic' => $singlePart->pic, 
+			$tempParts[] = array('pic' => $singlePart->pic,
 								'link'=> $singlePart->ca,
 								'line' => $singlePart -> line,
 								'model' => strtoupper($model));
@@ -42,7 +42,10 @@ class Part extends Application
 	}
 	
 	public function BuildPart() {
-		$tokenkey = 'https://umbrella.jlparry.com/work/mybuilds?key=1f2339';
+             
+            $line = $this->tokens->get(1);
+            $token = $line->tokenCode;
+		$tokenkey = 'https://umbrella.jlparry.com/work/mybuilds?key=$token';
 		$response = file_get_contents($tokenkey);
 		$parse_json_array = json_decode($response);
 		var_dump($parse_json_array);
@@ -101,8 +104,10 @@ class Part extends Application
 
 	
 	public function BuyBoxParts() {
-		
-		$tokenkey = 'https://umbrella.jlparry.com/work/buybox?key=1f2339';
+
+            $line = $this->tokens->get(1);
+            $token = $line->tokenCode;
+		$tokenkey = 'https://umbrella.jlparry.com/work/buybox?key=$token';
 		//.$this->token->getToken()["token"];
 		$response = file_get_contents($tokenkey);
 		$parse_json_array = json_decode($response);
