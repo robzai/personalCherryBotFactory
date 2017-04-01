@@ -8,9 +8,12 @@ class Robots extends MY_Model {
         parent::__construct('robots', 'id');
     }
 
-//    public function count(){
-//        return sizeof($this->data);
-//    }
+
+
+        //used to get total number of robots in homepage
+        public function getNumBots(){
+            return sizeof($this->all());
+        }
 
 //    // retrieve a single quote
 //    public function get($which)

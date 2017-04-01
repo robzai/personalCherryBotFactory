@@ -26,7 +26,12 @@ class Parts extends MY_Model {
 	public function getAllParts() {
 		return $this->all();
 	}
-	
+
+	//used to get total number of parts in homepage
+	public function getNumParts(){
+        return sizeof($this->all());
+    }
+
 	// retrieve a single part's detail
 	public function getPartDetail($which)
 	{
@@ -44,7 +49,8 @@ class Parts extends MY_Model {
 		}
 		return null;
 	}
-	
+
+
 	public function getPicByCA($which) {
             foreach ($this->all() as $record)
             {
@@ -55,7 +61,8 @@ class Parts extends MY_Model {
             return null;
         
 	}
-	
+
+	//used to tell which part of body the part belong to in assembly page
 	public function getType($which){
         $partArray = array ();
         foreach ($this->all() as $record)
@@ -69,6 +76,7 @@ class Parts extends MY_Model {
         return $partArray;
     }
 
+    //return id of parts
     public function getId($which)
     {
         // iterate over the data until we find the one we want
