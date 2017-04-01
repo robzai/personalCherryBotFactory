@@ -5,9 +5,9 @@ class Token extends MY_Model {
         parent::__construct('Token', 'id');
     }
 	
-    public function getToke() {
-        return $this->first();
-    }
+//    public function getToke() {
+//        return $this->first();
+//    }
 
 }
 

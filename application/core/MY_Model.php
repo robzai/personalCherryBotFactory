@@ -249,10 +249,8 @@ class MY_Model extends CI_Model implements Data_mapper {
                     $data = $record;
 		}
 		// update the DB table appropriately
-                var_dump($data);
                 echo"</br>";
 		$key = $data[$this->_keyField];
-                var_dump($key);
                 echo"</br>";
 		$this->db->where($this->_keyField, $key);
 		$object = $this->db->update($this->_tableName, $data);
