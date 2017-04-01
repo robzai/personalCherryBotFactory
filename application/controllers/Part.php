@@ -16,7 +16,7 @@ class Part extends Application
 		$tempParts = array();
 		foreach($records as $singlePart) {
 			$model = str_split($singlePart->pic)[0];
-			$tempParts[] = array('pic' => $singlePart->pic, 
+			$tempParts[] = array('pic' => $singlePart->pic,
 								'link'=> $singlePart->ca,
 								'line' => $singlePart -> line,
 								'model' => strtoupper($model));
@@ -70,10 +70,13 @@ class Part extends Application
 	}
 	
 	public function BuildPart() {
-        $this->data['pagebody'] = 'parts';
-		$tokenkey = 'https://umbrella.jlparry.com/work/mybuilds?key=423ea8';
+        $line = $this->tokens->get(1);
+        $token = $line->tokenCode;
+        //var_dump($token);
+		$tokenkey = "https://umbrella.jlparry.com/work/mybuilds?key=$token";
+		//var_dump($tokenkey);
 		$response = file_get_contents($tokenkey);
-
+		//var_dump($response);
 		if($response == "[]" ) {
             $this->session->set_userdata('build',"fails");
         } else {
@@ -137,8 +140,11 @@ class Part extends Application
 
 	
 	public function BuyBoxParts() {
-		
-		$tokenkey = 'https://umbrella.jlparry.com/work/buybox?key=423ea8';
+
+        $line = $this->tokens->get(1);
+        $token = $line->tokenCode;
+		$tokenkey = "https://umbrella.jlparry.com/work/buybox?key=$token";
+
 		//.$this->token->getToken()["token"];
 		$response = file_get_contents($tokenkey);
 		if($response == "Oops: you can't afford that!") {
@@ -204,8 +210,5 @@ class Part extends Application
 
 		redirect('/part');
 	}
-
-
-
 
 }

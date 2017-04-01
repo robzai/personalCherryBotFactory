@@ -20,20 +20,26 @@
     {message}
 </div>
 
+<form method ="POST" action="/managepage/sell">
 <div class="row">
     <div class="wrapper" style="color:#FFFFFF">
         <h2>Sell assembled bot</h2>
     </div>
-    {robots}
-    <div class="span4" style="text-align: center;">
-        <a href="/part/detail/{link}"><img src="/pix/parts/{top}.jpeg" /></a>
-        <a href="/part/detail/{link}"><img src="/pix/parts/{torso}.jpeg" /></a>
-        <a href="/part/detail/{link}"><img src="/pix/parts/{bottom}.jpeg" /></a>
-        <input type="radio" name="gender" value="checkbox{id}"> checkbox{id}
-    </div>
-    {/robots}
-    <button type="button" class="btn btn-default">sell</button>
+
+        {robots}
+        <div class="span4" style="text-align: center;">
+            <a href="/part/detail/{link}"><img src="/pix/parts/{top}.jpeg" /></a>
+            <a href="/part/detail/{link}"><img src="/pix/parts/{torso}.jpeg" /></a>
+            <a href="/part/detail/{link}"><img src="/pix/parts/{bottom}.jpeg" /></a>
+            <input type="radio" name="index" value="{id}"> {id}
+        </div>
+        {/robots}
+        <div id="build">
+        <button type="submit" class="btn btn-default">sell</button>
+        </div>
+    {sell}
 </div>
+</form>
 
 <div class="row">
     <div class="wrapper" style="color:#FFFFFF">

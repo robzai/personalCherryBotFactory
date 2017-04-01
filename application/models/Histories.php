@@ -139,9 +139,9 @@ class Histories extends MY_Model {
 
 		foreach ($this->all() as $record)
 		{
-			if ($record['type'] == "Purchased Box")
+			if ($record->type == "Purchased Box")
 			{
-				$totalSpent += $record['price'];
+				$totalSpent += $record->price;
 			}
 		}
 		return $totalSpent;
@@ -154,9 +154,9 @@ class Histories extends MY_Model {
 
 		foreach ($this->all() as $record)
 		{
-			if (($record['type'] == "Sold Robot") || ($record['type'] == "Return Part(s)"))
+			if (($record->type == "Sold Robot") || ($record->type == "Return Part(s)"))
 			{
-				$totalEarned += $record['price'];
+				$totalEarned += $record->price;
 			}
 		}
 		return $totalEarned;
