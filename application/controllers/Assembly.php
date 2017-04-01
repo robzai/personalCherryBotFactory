@@ -19,12 +19,9 @@ class Assembly extends Application
         $bottoms = $this->parts->getType("bottom");
         $this->data['bottom'] = $bottoms;
 
-        echo sizeof($tops);
-        echo sizeof($torsos);
-        echo sizeof($bottoms);
         $this->render();
     }
-
+/*
     public function detail($id)
     {
         // this is the view we want shown
@@ -35,7 +32,7 @@ class Assembly extends Application
         $this->data = array_merge($this->data, $source);
         $this->render();
 
-    }
+    }*/
 
     public function assemble(){
         $this->data['pagebody'] = 'assemblyView';

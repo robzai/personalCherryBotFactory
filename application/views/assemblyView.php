@@ -13,7 +13,7 @@
             </div>
             {top}
             <div class="span4" style="text-align: center;">
-                <a href="/part/detail/{link}"><img src="/pix/parts/{pic}.jpeg" /></a>
+                <img src="/pix/parts/{pic}.jpeg" />
                 <input type="checkbox" name='pick[]' value="top{link}">
             </div>
             {/top}
@@ -26,7 +26,7 @@
             </div>
             {torso}
             <div class="span4" style="text-align: center;">
-                <a href="/part/detail/{link}"><img src="/pix/parts/{pic}.jpeg" /></a>
+                <img src="/pix/parts/{pic}.jpeg" />
                 <input type="checkbox" name='pick[]' value="torso{link}">
             </div>
             {/torso}
@@ -39,7 +39,7 @@
             </div>
             {bottom}
             <div class="span4" style="text-align: center;">
-                <a href="/part/detail/{link}"><img src="/pix/parts/{pic}.jpeg" /></a>
+                <img src="/pix/parts/{pic}.jpeg" />
                 <input type="checkbox" name='pick[]' value="bottom{link}">
             </div>
             {/bottom}
