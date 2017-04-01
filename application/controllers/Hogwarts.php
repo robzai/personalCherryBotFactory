@@ -17,6 +17,9 @@ class Hogwarts extends Application
     public function index(){
 		
 			$role = $this->session->userdata('userrole');
+			if(!isset($role)) {
+			    $role = "guest";
+            }
 			$this->data['pagetitle'] = 'this is testing ('. $role . ')';
             
             $this->data['pagebody'] = 'homepage';
