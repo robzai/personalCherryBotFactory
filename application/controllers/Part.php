@@ -57,7 +57,7 @@ class Part extends Application
     }
 
 
-
+    //get a part's detail info
 	public function detail($ca)
 	{
 		// this is the view we want shown
@@ -68,7 +68,8 @@ class Part extends Application
 		$this->render();
 	
 	}
-	
+
+	//buid parts from main plant
 	public function BuildPart() {
         $line = $this->tokens->get(1);
         $token = $line->tokenCode;
@@ -138,7 +139,7 @@ class Part extends Application
         redirect('/part');
 	}
 
-	
+	//buy a box of parts from main plant
 	public function BuyBoxParts() {
 
         $line = $this->tokens->get(1);
