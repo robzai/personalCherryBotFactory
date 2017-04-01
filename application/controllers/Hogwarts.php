@@ -19,7 +19,7 @@ class Hogwarts extends Application
 			$role = $this->session->userdata('userrole');
 			if(!isset($role)) {
 			    $role = "guest";
-                $this->session->setuserdata('userrole','guest');
+                $this->session->set_userdata('userrole','guest');
             }
 			$this->data['pagetitle'] = 'this is testing ('. $role . ')';
             
