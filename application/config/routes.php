@@ -49,29 +49,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'hogwarts';
+$route['default_controller'] = 'homepage';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['lock/(:any)/(:any)'] = 'hogwarts/shucks';
-$route['sleep'] = 'First/zzz';
-$route['([a-zA-Z]{4})/bingo'] = 'Bingo/index';
-$route['last'] = 'last/welcome';
 
-$route['dunno'] = function() {
-    
-    $dir = "../public/pix/";
-    $source = scandir($dir);
-    //var_dump($source);
-    $num = rand(2, sizeof($source) - 1);
-    $img = $source[$num];
-    
-    // set the mime type for that image (jpeg, png, etc)
-    header("Content-type: image/jpeg"); 
-    header('Content-Disposition: inline');
-    readfile($dir . $img); // dish it
-    echo"......";
-    die(); // and we don't have to go any further
-};
 
-$route['show/(:num)'] = "first/gimme/$1";
+
+
 
