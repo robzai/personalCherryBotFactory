@@ -1,6 +1,6 @@
 <?php
 
-class Roles extends Application
+class Role extends Application
 {
         public function actor($role = ROLE_GUEST)
         {
