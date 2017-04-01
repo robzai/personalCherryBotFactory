@@ -71,6 +71,9 @@ class Assembly extends Application
                 'top' => $topca,
                 'torso' => $torsoca,
                 'bottom' => $bottomca,
+                'toppic' => $this->parts->get($topid)->pic,
+                'torsopic' => $this->parts->get($torsoid)->pic,
+                'bottompic' => $this->parts->get($bottomid)->pic,
                 'date' => date('Y-m-d H:i:s'),
                 'price' => 200
             );
