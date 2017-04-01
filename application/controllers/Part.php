@@ -30,7 +30,7 @@ class Part extends Application
             $this->data['pagebody'] = 'emptyforrole';
         } else {
             $temp = $this->session->userdata("build");
-            var_dump($temp);
+            //var_dump($temp);
             $this->session->unset_userdata("build");
             if($temp == "fails") {
                 $this->data["message"] ="<div class='alert alert-danger'> build fails"."</div>";
@@ -41,7 +41,7 @@ class Part extends Application
             }
 
             $temp = $this->session->userdata("purchase");
-            var_dump($temp);
+            //var_dump($temp);
             $this->session->unset_userdata("purchase");
             if($temp == "fails") {
                 $this->data["message1"] ="<div class='alert alert-danger'> purchase fails"."</div>";

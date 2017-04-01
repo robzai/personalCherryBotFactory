@@ -50,7 +50,7 @@ class Parts extends MY_Model {
 		return null;
 	}
 
-	
+	/*
 	//retrieve part's pic by ca
 	public function getPicByCA($which) {
             foreach ($this->all() as $record)
@@ -61,7 +61,7 @@ class Parts extends MY_Model {
             }
             return null;
         
-	}
+	}*/
 
 
 	//used to tell which part of body the part belong to in assembly page
@@ -91,6 +91,8 @@ class Parts extends MY_Model {
                 return $record;
         return null;
     }
+
+
 
 	
 	//get how many parts we have

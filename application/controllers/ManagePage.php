@@ -13,9 +13,9 @@ class ManagePage extends Application
             $this->data['pagebody'] = 'managePageView';
             $robots = $this->robots->all();
             foreach($robots as $robot){
-                $robot->top = $this->parts->getPicByCA($robot->top);
-                $robot->torso = $this->parts->getPicByCA($robot->torso);
-                $robot->bottom = $this->parts->getPicByCA($robot->bottom);
+                $robot->top = $this->robots->getTopByCA($robot->top);
+                $robot->torso = $this->robots->getTorsoByCA($robot->torso);
+                $robot->bottom = $this->robots->getBottomByCA($robot->bottom);
             }
             $this->data['robots'] = $robots;
             $this->data['message'] = "<div></div>";
@@ -50,9 +50,9 @@ class ManagePage extends Application
         $this->data['sell'] = "<div></div>";
         $robots = $this->robots->all();
         foreach($robots as $robot){
-            $robot->top = $this->parts->getPicByCA($robot->top);
-            $robot->torso = $this->parts->getPicByCA($robot->torso);
-            $robot->bottom = $this->parts->getPicByCA($robot->bottom);
+            $robot->top = $this->robots->getTopByCA($robot->top);
+            $robot->torso = $this->robots->getTorsoByCA($robot->torso);
+            $robot->bottom = $this->robots->getBottomByCA($robot->bottom);
         }
         $this->data['robots'] = $robots;     
         $this->render();
@@ -80,9 +80,9 @@ class ManagePage extends Application
          $this->data['sell'] = "<div></div>";
         $robots = $this->robots->all();
         foreach($robots as $robot){
-            $robot->top = $this->parts->getPicByCA($robot->top);
-            $robot->torso = $this->parts->getPicByCA($robot->torso);
-            $robot->bottom = $this->parts->getPicByCA($robot->bottom);
+            $robot->top = $this->robots->getTopByCA($robot->top);
+            $robot->torso = $this->robots->getTorsoByCA($robot->torso);
+            $robot->bottom = $this->robots->getBottomByCA($robot->bottom);
         }
         $this->data['robots'] = $robots;    
         $this->render();
@@ -127,9 +127,9 @@ class ManagePage extends Application
             $this->data['reboot'] = "<div></div>";
             $robots = $this->robots->all();
             foreach($robots as $robot){
-                $robot->top = $this->parts->getPicByCA($robot->top);
-                $robot->torso = $this->parts->getPicByCA($robot->torso);
-                $robot->bottom = $this->parts->getPicByCA($robot->bottom);
+                $robot->top = $this->robots->getTopByCA($robot->top);
+                $robot->torso = $this->robots->getTorsoByCA($robot->torso);
+                $robot->bottom = $this->robots->getBottomByCA($robot->bottom);
             }
             $this->data['robots'] = $robots;  
             } 
