@@ -9,7 +9,7 @@ class Assembly extends Application
         // this is the view we want shown
         $this->data['pagebody'] = 'assemblyView';
 
-        $tops = $this->parts->getType("top");
+        $tops = $this->parts->getType("head");
         $this->data['top'] = $tops;
 
         $torsos = $this->parts->getType("torso");
@@ -64,7 +64,7 @@ class Assembly extends Application
                 'top' => $topca,
                 'torso' => $torsoca,
                 'bottom' => $bottomca,
-                'date' => '2017-1-1',
+                'date' => date('Y-m-d H:i:s'),
                 'price' => 200
             );
             $this->db->insert("Robots", $newRobot);
@@ -78,7 +78,7 @@ class Assembly extends Application
             $newHistory = array(
                 'type' => 'Robot Assembly',
                 'partstype' => $topca."&nbsp;".$torsoca."&nbsp;".$bottomca,
-                'date' => $torsoca,
+                //'date' => $torsoca,
                 'date' => date('Y-m-d H:i:s'),
                 'price' => 0
             );

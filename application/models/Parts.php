@@ -64,17 +64,21 @@ class Parts extends MY_Model {
 
 	//used to tell which part of body the part belong to in assembly page
 	public function getType($which){
-        $partArray = array ();
-        foreach ($this->all() as $record)
-        {
-            if ($record->type == $which){
-                $partArray[] = array (
-                    'pic' => $record->pic,
-                    'link' => $record->id );
+            $partArray = array ();
+            foreach ($this->all() as $record)
+            {
+                if ($record->type == $which){
+                    $partArray[] = array (
+                        'pic' => $record->pic,
+                        'link' => $record->id );
+                }
+
             }
+
+            return $partArray;
         }
-        return $partArray;
-    }
+
+    
 
     //return id of parts
     public function getId($which)
@@ -85,11 +89,7 @@ class Parts extends MY_Model {
                 return $record;
         return null;
     }
-	
-	public function getLastId() {
-		$partsArray = $this-> all();
-		return $partsArray[$this->size()-1] ->id;
-	}
+
 	
 	/*
 
