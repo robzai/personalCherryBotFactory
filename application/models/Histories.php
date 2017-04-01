@@ -1,9 +1,8 @@
 <?php
 
 
-class Histories extends CI_Model {
-
-	var $data = array(
+class Histories extends MY_Model {
+	/*var $data = array(
 		array('transactionId' => '1', 'type' => 'Purchased Box', 'partsType' => 'a1 b2 c3 d1 e2 f3 g1 h2 i3 j1', 'date' => '10:30pm April 15 2014', 'price' => 100),
 		array('transactionId' => '2', 'type' => 'Purchased Box', 'partsType' => 'c1 b2 q3 d1 e2 l3 g2 p2 x3 m1', 'date' => '08:30pm April 17 2014', 'price' => 100),
 		array('transactionId' => '3', 'type' => 'Purchased Box', 'partsType' => 'x1 b2 c3 d1 e2 f3 g1 h2 i3 j1', 'date' => '07:30pm April 12 2014', 'price' => 100),
@@ -31,28 +30,106 @@ class Histories extends CI_Model {
 		array('transactionId' => '25', 'type' => 'Sold Robot', 'partsType' => 'm1 n2 o3', 'date' => '12:30am April 23 2014', 'price' => 50),
 		array('transactionId' => '26', 'type' => 'Sold Robot', 'partsType' => 'w1 w2 w3', 'date' => '04:30am April 24 2014', 'price' => 200),
 		array('transactionId' => '27', 'type' => 'Sold Robot', 'partsType' => 'w1 y2 z3', 'date' => '01:30am April 25 2014', 'price' => 100)
-	);
+	);*/
 
 	// Constructor
 	public function __construct()
 	{
-		parent::__construct();
+		parent::__construct('Histories', 'id');
 	}
 
 	// retrieve a single transaction
-	public function get($which)
+	public function getTransaction($which)
 	{
 		// iterate over the data until we find the one we want
-		foreach ($this->data as $record)
-			if ($record['transactionId'] == $which)
+		foreach ($this->all() as $record)
+			if ($record['id'] == $which)
 				return $record;
 		return null;
 	}
 
-	// retrieve all of the transactions
-	public function all()
+	public function sortedByPrice($order)
 	{
-		return $this->data;
+		// retrieve all transactions
+		$transactions = $this->all();
+		// convert from array of objects to array of arrays
+		foreach ($transactions as $transaction)
+            $converted[] = (array) $transaction;
+		$price = array();
+		foreach ($converted as $key => $row)
+		{
+			$price[$key] = $row['price'];
+		}
+
+		if (strcmp($order, "asc") == 0) {
+			// Sort by price ascending
+			array_multisort($price, SORT_ASC, $converted);
+		} else if(strcmp($order, "desc") == 0){
+			// Sort by price descending
+			array_multisort($price, SORT_DESC, $converted);
+		}
+		return $converted;
+	}
+
+	// Compare date/time ascending
+	public function sortDateTimeAsc($a, $b)
+	{
+		return strtotime($a['date']) - strtotime($b['date']);
+	}
+	// Compare date/time descending
+	public function sortDateTimeDesc($a, $b)
+	{
+		return strtotime($b['date']) - strtotime($a['date']);
+	}
+	// Compare transaction type ascending
+	public function sortTypeAsc($a, $b)
+	{
+  	return strcmp($a["type"], $b["type"]);
+	}
+	// Compare transaction type descending
+	public function sortTypeDesc($a, $b)
+	{
+  	return -strcmp($a["type"], $b["type"]);
+	}
+
+	public function sortedByDateTime($order)
+	{
+		// retrieve all transactions
+		$transactions = $this->all();
+		// convert from array of objects to array of arrays
+		foreach ($transactions as $transaction)
+            $converted[] = (array) $transaction;
+		if (strcmp($order, "asc") == 0) {
+			// Sort by date/time ascending
+			usort($converted, array($this,"sortDateTimeAsc"));
+		} else if(strcmp($order, "desc") == 0){
+			// Sort by date/time descending
+			usort($converted, array($this,"sortDateTimeDesc"));
+		}
+		return $converted;
+	}
+
+	public function sortedByType($order)
+	{
+		// retrieve all transactions
+		$transactions = $this->all();
+		// convert from array of objects to array of arrays
+		foreach ($transactions as $transaction)
+            $converted[] = (array) $transaction;
+		if (strcmp($order, "asc") == 0) {
+			// Sort by date/time ascending
+			usort($converted, array($this,"sortTypeAsc"));
+		} else if(strcmp($order, "desc") == 0){
+			// Sort by date/time descending
+			usort($converted, array($this,"sortTypeDesc"));
+		}
+		return $converted;
+	}
+
+	// retrieve all of the transactions
+	public function getAllTransactions()
+	{
+		return $this->all();
 	}
 
 	// retrieve the total amount of money spent
@@ -60,7 +137,7 @@ class Histories extends CI_Model {
 	{
 		$totalSpent = 0;
 
-		foreach ($this->data as $record)
+		foreach ($this->all() as $record)
 		{
 			if ($record['type'] == "Purchased Box")
 			{
@@ -75,7 +152,7 @@ class Histories extends CI_Model {
 	{
 		$totalEarned = 0;
 
-		foreach ($this->data as $record)
+		foreach ($this->all() as $record)
 		{
 			if (($record['type'] == "Sold Robot") || ($record['type'] == "Return Part(s)"))
 			{
@@ -84,4 +161,5 @@ class Histories extends CI_Model {
 		}
 		return $totalEarned;
 	}
+
 }

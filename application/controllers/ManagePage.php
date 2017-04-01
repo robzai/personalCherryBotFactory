@@ -32,8 +32,8 @@ class ManagePage extends Application
             //4a7ce8
             //register succeed write to database        
             $tkCode = array('id' => '1', 'tokenCode' => $pieces[1]);
-            var_dump($pieces[1]);
-            $this->token->update($tkCode);           
+            //var_dump($tkCode);
+            $this->tokens->update($tkCode);
             $this->data['message'] = "<div>succeed</div>";
         }else{
             //show erroe message
