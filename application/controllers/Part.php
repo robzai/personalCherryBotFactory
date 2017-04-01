@@ -20,7 +20,7 @@ class Part extends Application
 		$tempParts = array();
 		foreach($records as $singlePart) {
 			$model = str_split($singlePart->pic)[0];
-			$tempParts[] = array('pic' => $singlePart->pic, 
+			$tempParts[] = array('pic' => $singlePart->pic,
 								'link'=> $singlePart->ca,
 								'line' => $singlePart -> line,
 								'model' => strtoupper($model));
@@ -101,7 +101,7 @@ class Part extends Application
 
 	
 	public function BuyBoxParts() {
-		
+
 		$tokenkey = 'https://umbrella.jlparry.com/work/buybox?key=1f2339';
 		//.$this->token->getToken()["token"];
 		$response = file_get_contents($tokenkey);

@@ -65,9 +65,17 @@ class Parts extends MY_Model {
                     'pic' => $record->pic,
                     'link' => $record->id );
             }
-			
         }
-		return $partArray;
+        return $partArray;
+    }
+
+    public function getId($which)
+    {
+        // iterate over the data until we find the one we want
+        foreach ($this->all() as $record)
+            if ($record->id == $which)
+                return $record;
+        return null;
     }
 	
 	public function getLastId() {
@@ -76,15 +84,7 @@ class Parts extends MY_Model {
 	}
 	
 	/*
-	// retrieve a single quote
-	public function get($which)
-	{
-		// iterate over the data until we find the one we want
-		foreach ($this->data as $record)
-			if ($record['id'] == $which)
-				return $record;
-		return null;
-	}
+
 
 	public function count(){
         return sizeof($this->data);
