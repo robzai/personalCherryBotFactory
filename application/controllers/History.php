@@ -12,7 +12,10 @@ class History extends Application
 	 */
 	public function index()
 	{
-		$this->page(1);
+
+            $this->page(1);
+
+
 	}
 
 	// Show a single page of transactions
@@ -26,8 +29,16 @@ class History extends Application
 	    }
 	    $this->data['display_transactions'] = $result;
 
+        $role = $this->session->userdata('userrole');
+        $this->data['pagetitle'] = 'your user role is '. $role . '';
+        if ($role == "boss") {
+            $this->data['pagebody'] = 'transactionlist';
+        } else {
+            $this->data['pagebody'] = 'emptyforrole';
+        }
+
 	    // and then pass them on
-	    $this->data['pagebody'] = 'transactionlist';
+
 	    $this->render();
 	}
 	// Extract & handle a page of items, defaulting to the beginning

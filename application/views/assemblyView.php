@@ -2,7 +2,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/assemblyView.css"/>
 </head>
 
-<div class="row" style="font-family:title">
+<div class="row">
     <h2>Assembly&Return</h2>
 </div>
 <div class="row">

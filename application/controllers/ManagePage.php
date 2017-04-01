@@ -6,17 +6,25 @@ class ManagePage extends Application
 {
     public function index()
     {
-        // this is the view we want shown
-        $this->data['pagebody'] = 'managePageView';
-        $robots = $this->robots->all();
-        foreach($robots as $robot){
-            $robot->top = $this->parts->getPicByCA($robot->top);
-            $robot->torso = $this->parts->getPicByCA($robot->torso);
-            $robot->bottom = $this->parts->getPicByCA($robot->bottom);
+        $role = $this->session->userdata('userrole');
+        $this->data['pagetitle'] = 'your user role is '. $role . '';
+        if ($role == "boss") {
+            // this is the view we want shown
+            $this->data['pagebody'] = 'managePageView';
+            $robots = $this->robots->all();
+            foreach($robots as $robot){
+                $robot->top = $this->parts->getPicByCA($robot->top);
+                $robot->torso = $this->parts->getPicByCA($robot->torso);
+                $robot->bottom = $this->parts->getPicByCA($robot->bottom);
+            }
+            $this->data['robots'] = $robots;
+            $this->data['message'] = "<div></div>";
+            $this->data['reboot'] = "<div></div>";
+        } else {
+            $this->data['pagebody'] = 'emptyforrole';
         }
-        $this->data['robots'] = $robots;
-        $this->data['message'] = "<div></div>";
-        $this->data['reboot'] = "<div></div>";
+
+
         $this->render();
     }
     

@@ -13,14 +13,21 @@ class Assembly extends Application
         // this is the view we want shown
         $this->data['pagebody'] = 'assemblyView';
 
-        $tops = $this->parts->getType("top");
-        $this->data['top'] = $tops;
+        $role = $this->session->userdata('userrole');
+        $this->data['pagetitle'] = 'your user role is '. $role . '';
 
-        $torsos = $this->parts->getType("torso");
-        $this->data['torso'] = $torsos;
+        if ($role == "guest" || $role=="worker") {
+            $this->data['pagebody'] = 'emptyforrole';
+        } else {
+            $tops = $this->parts->getType("head");
+            $this->data['top'] = $tops;
 
-        $bottoms = $this->parts->getType("bottom");
-        $this->data['bottom'] = $bottoms;
+            $torsos = $this->parts->getType("torso");
+            $this->data['torso'] = $torsos;
+
+            $bottoms = $this->parts->getType("bottom");
+            $this->data['bottom'] = $bottoms;
+        }
 
         $this->render();
 
