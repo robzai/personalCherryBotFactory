@@ -45,10 +45,13 @@ class Part extends Application
              
             $line = $this->tokens->get(1);
             $token = $line->tokenCode;
-		$tokenkey = 'https://umbrella.jlparry.com/work/mybuilds?key=$token';
+			var_dump($token);
+		$tokenkey = "https://umbrella.jlparry.com/work/mybuilds?key=$token";
+		//var_dump($tokenkey);
 		$response = file_get_contents($tokenkey);
+		//var_dump($response);
 		$parse_json_array = json_decode($response);
-		var_dump($parse_json_array);
+		
 		$line = "";
 		$type = "";
 		$finalArray =array();
@@ -107,7 +110,7 @@ class Part extends Application
 
             $line = $this->tokens->get(1);
             $token = $line->tokenCode;
-		$tokenkey = 'https://umbrella.jlparry.com/work/buybox?key=$token';
+		$tokenkey = "https://umbrella.jlparry.com/work/buybox?key=$token";
 		//.$this->token->getToken()["token"];
 		$response = file_get_contents($tokenkey);
 		$parse_json_array = json_decode($response);

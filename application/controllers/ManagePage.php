@@ -9,11 +9,14 @@ class ManagePage extends Application
         // this is the view we want shown
         $this->data['pagebody'] = 'managePageView';
         $robots = $this->robots->all();
+        //var_dump($robots);
+        echo"</br>";
         foreach($robots as $robot){
             $robot->top = $this->parts->getPicByCA($robot->top);
             $robot->torso = $this->parts->getPicByCA($robot->torso);
             $robot->bottom = $this->parts->getPicByCA($robot->bottom);
         }
+        //var_dump($robots);
         $this->data['robots'] = $robots;
         $this->data['message'] = "<div></div>";
         $this->data['reboot'] = "<div></div>";
@@ -101,7 +104,17 @@ class ManagePage extends Application
             $pieces = explode(" ", $response);
             if($pieces[0] == "Ok"){
                 //delete the robot from DB
-                $this->db->delete('Parts', array('id' => $index));
+                $this->db->delete('Robots', array('id' => $index));
+                
+                //update the history table
+                $newHistory = array(
+                    'type' => 'Sell',
+                    'partstype' => $top."&nbsp;".$torso."&nbsp;".$bottom,
+                    'date' => date('Y-m-d H:i:s'),
+                    'price' => $pieces[1]
+                );
+                $this->db->insert("Histories", $newHistory);
+                
                 $this->data['sell'] = "<div>$response</div>";
             }else{
                 //show erroe message
@@ -116,10 +129,7 @@ class ManagePage extends Application
                 $robot->bottom = $this->parts->getPicByCA($robot->bottom);
             }
             $this->data['robots'] = $robots;  
-            }
-
-
-  
+            } 
         $this->render();
     }
 }
