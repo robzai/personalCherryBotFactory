@@ -12,12 +12,16 @@ class Assembly extends Application
         $tops = $this->parts->getType("top");
         $this->data['top'] = $tops;
 
+
         $torsos = $this->parts->getType("torso");
         $this->data['torso'] = $torsos;
 
         $bottoms = $this->parts->getType("bottom");
         $this->data['bottom'] = $bottoms;
 
+        echo sizeof($tops);
+        echo sizeof($torsos);
+        echo sizeof($bottoms);
         $this->render();
     }
 

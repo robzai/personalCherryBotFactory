@@ -2,8 +2,8 @@
 
 
 class Parts extends MY_Model {
-	
-	public function __construct()
+    
+    public function __construct()
     {
          parent::__construct('Parts', 'id');
     }
@@ -45,6 +45,17 @@ class Parts extends MY_Model {
 		return null;
 	}
 	
+	public function getPicByCA($which) {
+            foreach ($this->all() as $record)
+            {
+                if ($record->ca == $which){
+                    return $record->pic;
+                }
+            }
+            return null;
+        
+	}
+	
 	public function getType($which){
         $partArray = array ();
         foreach ($this->all() as $record)
@@ -54,8 +65,10 @@ class Parts extends MY_Model {
                     'pic' => $record->pic,
                     'link' => $record->id );
             }
+
         }
         return $partArray;
+        
     }
 
     public function getId($which)
