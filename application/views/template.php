@@ -22,9 +22,11 @@ if (!defined('APPPATH'))
     </head>
     <body>
         <div class="container">
+			{pagetitle}
             <div class="navbar">
                 <div class="navbar-inner">
-                    {menubar} </div>
+                    {menubar} 
+				</div>
             </div>           
             <div id="content">
                 {content}

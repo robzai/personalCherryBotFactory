@@ -4,6 +4,8 @@
 <div class="row">
 	<div  class="col-sm-6 btn text-muted"> <a href="/part/BuyBoxParts">Buy Box Parts</a></div>
 	<div  class="col-sm-6 btn text-muted"> <a href="/part/BuildPart">Build Part</a></div>
+    {message}
+    {message1}
 </div>
 <div class="row">
     {id}
