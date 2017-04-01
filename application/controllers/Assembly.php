@@ -12,7 +12,6 @@ class Assembly extends Application
         $tops = $this->parts->getType("top");
         $this->data['top'] = $tops;
 
-
         $torsos = $this->parts->getType("torso");
         $this->data['torso'] = $torsos;
 
@@ -84,10 +83,10 @@ class Assembly extends Application
                 'price' => 0
             );
             $this->db->insert("Histories", $newHistory);
-            echo "<script>alert('Robot built successfully');";
+            echo "<script>alert('Robot built successfully!!');";
             echo "window.location.href='/Assembly';</script>";
         }else{
-            echo "<script>alert('Please select only one from each part.');";
+            echo "<script>alert('Warning: Please select one from each part.');";
             echo "window.location.href='/Assembly';</script>";
         }
         $this->render();

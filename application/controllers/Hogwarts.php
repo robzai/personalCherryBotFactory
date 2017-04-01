@@ -20,16 +20,20 @@ class Hogwarts extends Application
 			$this->data['pagetitle'] = 'this is testing ('. $role . ')';
             
             $this->data['pagebody'] = 'homepage';
-            
-            $data = array();
-            //$countPatrs = $this->parts->count();
-            //$countBots = $this->robot->count();
-            //$countSpent = $this->histories->getSpent();
-            //$countEarned = $this->histories->getEarned();
-            //$data = array('parts'=> $countPatrs, 'bots' => $countBots, 'spent' => $countSpent
-                //, 'earned' => $countEarned);
-            $this->data = array_merge($this->data, $data);
+
+            $countPatrs = $this->parts->getNumParts();
+            $countBots = $this->robots->getNumBots();
+            $countSpent = $this->histories->getSpent();
+            $countEarned = $this->histories->getEarned();
+
+            $this->data['parts'] = $countPatrs;
+            $this->data['bots'] = $countBots;
+            $this->data['spent'] = $countSpent;
+            $this->data['earned'] = $countEarned;
+
             $this->render();
+
+
 		
 	}
 }
