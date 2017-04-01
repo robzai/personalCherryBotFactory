@@ -33,7 +33,7 @@ class ManagePage extends Application
             
             $tkCode = array('id' => '1', 'tokenCode' => $pieces[1]);
             //var_dump($tkCode);
-            $this->token->update($tkCode);
+            $this->tokens->update($tkCode);
             
             $this->data['message'] = "<div>succeed</div>";
         }else{
