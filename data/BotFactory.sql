@@ -28,6 +28,9 @@ CREATE TABLE Robots (
   top varchar(10) DEFAULT NULL,
   torso varchar(10) DEFAULT NULL,
   bottom varchar(10) DEFAULT NULL,
+  toppic varchar(10) DEFAULT NULL,
+  torsopic varchar(10) DEFAULT NULL,
+  bottompic varchar(10) DEFAULT NULL,
   date date DEFAULT NULL,
   price int(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -37,10 +40,10 @@ CREATE TABLE Robots (
 --
 
 
-INSERT INTO Robots (id,top,torso,bottom,date,price) VALUES
-  (1,'12234A1', '90062R2', '3276C3', '2012-1-1', 1),
-  (2,'00002A1', '7890B2', 'ABCDC3', '2012-1-1', 1),
-  (3,'06BFB1', 'AABB0C2', 'ADC23R3', '2012-1-1', 1);
+INSERT INTO Robots (id,top,torso,bottom,toppic,torsopic,bottompic,date,price) VALUES
+  (1,'12234A1', '90062R2', '3276C3', 'a1', 'r2', 'c3', '2012-1-1', 1),
+  (2,'00002A1', '7890B2', 'ABCDC3', 'a1', 'b2', 'c3', '2012-1-1', 1),
+  (3,'06BFB1', 'AABB0C2', 'ADC23R3', 'b1', 'c2', 'r3', '2012-1-1', 1);
 
 -- --------------------------------------------------------
 

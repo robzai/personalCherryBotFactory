@@ -15,7 +15,7 @@ class Assembly extends Application
         if ($role == "guest" || $role=="worker") {
             $this->data['pagebody'] = 'emptyforrole';
         } else {
-            $tops = $this->parts->getType("head");
+            $tops = $this->parts->getType("top");
             $this->data['top'] = $tops;
 
             $torsos = $this->parts->getType("torso");
@@ -71,6 +71,9 @@ class Assembly extends Application
                 'top' => $topca,
                 'torso' => $torsoca,
                 'bottom' => $bottomca,
+                'toppic' => $this->parts->get($topid)->pic,
+                'torsopic' => $this->parts->get($torsoid)->pic,
+                'bottompic' => $this->parts->get($bottomid)->pic,
                 'date' => date('Y-m-d H:i:s'),
                 'price' => 200
             );
