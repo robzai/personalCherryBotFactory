@@ -11,15 +11,10 @@ class ManagePage extends Application
         if ($role == "boss") {
             // this is the view we want shown
             $this->data['pagebody'] = 'managePageView';
-            $robots = $this->robots->all();
-            foreach($robots as $robot){
-                $robot->top = $this->robots->getTopByCA($robot->top);
-                $robot->torso = $this->robots->getTorsoByCA($robot->torso);
-                $robot->bottom = $this->robots->getBottomByCA($robot->bottom);
-            }
-            $this->data['robots'] = $robots;
+            $this->data['robots'] = $this->_getPic();
             $this->data['message'] = "<div></div>";
             $this->data['reboot'] = "<div></div>";
+            $this->data['sell'] = "<div></div>";
         } else {
             $this->data['pagebody'] = 'emptyforrole';
         }
@@ -48,13 +43,8 @@ class ManagePage extends Application
         }
         $this->data['reboot'] = "<div></div>";
         $this->data['sell'] = "<div></div>";
-        $robots = $this->robots->all();
-        foreach($robots as $robot){
-            $robot->top = $this->robots->getTopByCA($robot->top);
-            $robot->torso = $this->robots->getTorsoByCA($robot->torso);
-            $robot->bottom = $this->robots->getBottomByCA($robot->bottom);
-        }
-        $this->data['robots'] = $robots;     
+        $this->data['robots'] = $this->_getPic();
+
         $this->render();
     }
     
@@ -78,13 +68,8 @@ class ManagePage extends Application
         }
         $this->data['message'] = "<div></div>";
          $this->data['sell'] = "<div></div>";
-        $robots = $this->robots->all();
-        foreach($robots as $robot){
-            $robot->top = $this->robots->getTopByCA($robot->top);
-            $robot->torso = $this->robots->getTorsoByCA($robot->torso);
-            $robot->bottom = $this->robots->getBottomByCA($robot->bottom);
-        }
-        $this->data['robots'] = $robots;    
+        $robots = $this->robots->all(); 
+        $this->data['robots'] = $this->_getPic();
         $this->render();
     }
     
@@ -125,14 +110,19 @@ class ManagePage extends Application
             }
             $this->data['message'] = "<div></div>";
             $this->data['reboot'] = "<div></div>";
-            $robots = $this->robots->all();
-            foreach($robots as $robot){
-                $robot->top = $this->robots->getTopByCA($robot->top);
-                $robot->torso = $this->robots->getTorsoByCA($robot->torso);
-                $robot->bottom = $this->robots->getBottomByCA($robot->bottom);
-            }
-            $this->data['robots'] = $robots;  
+            $this->data['robots'] = $this->_getPic();
             } 
         $this->render();
     }
+    
+    private function _getPic(){
+        $robots = $this->robots->all();
+        foreach($robots as $robot){
+            $robot->top = $this->robots->getTopByCA($robot->top);
+            $robot->torso = $this->robots->getTorsoByCA($robot->torso);
+            $robot->bottom = $this->robots->getBottomByCA($robot->bottom);
+        }
+        return $robots;
+    }
+    
 }

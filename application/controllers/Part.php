@@ -7,7 +7,7 @@ class Part extends Application
 	/**
 	 * First for our app
 	 */
-	public function index()
+    public function index()
     {
 
         //$this->page(1);
@@ -51,7 +51,7 @@ class Part extends Application
                 $this->data["message1"]="<div></div>";
             }
 
-            $this->data['pagebody'] = 'parts';
+            $this->data['pagebody'] = 'partView';
         }
 		$this->render();
     }

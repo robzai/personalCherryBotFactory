@@ -15,7 +15,7 @@ class Assembly extends Application
         if ($role == "guest" || $role=="worker") {
             $this->data['pagebody'] = 'emptyforrole';
         } else {
-            $tops = $this->parts->getType("top");
+            $tops = $this->parts->getType("head");
             $this->data['top'] = $tops;
 
             $torsos = $this->parts->getType("torso");
