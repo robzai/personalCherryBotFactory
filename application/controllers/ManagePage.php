@@ -27,12 +27,15 @@ class ManagePage extends Application
     public function register(){
         $this->data['pagebody'] = 'managePageView';
         $pw = $_POST["password"];
-        $response = file_get_contents("https://umbrella.jlparry.com/work/registerme/cherry/$pw");
+        $response = "error";
+        if(!ctype_space($pw)){
+            $response = file_get_contents("https://umbrella.jlparry.com/work/registerme/cherry/$pw");
+        }
         $pieces = explode(" ", $response);
-        $length = sizeof($pieces,0);       
+        $length = sizeof($pieces,0);
         if($length == 2){
             //4a7ce8
-            //register succeed write to database        
+            //register succeed write to database
             $tkCode = array('id' => '1', 'tokenCode' => $pieces[1]);
             //var_dump($tkCode);
             $this->tokens->update($tkCode);
