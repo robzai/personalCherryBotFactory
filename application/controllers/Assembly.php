@@ -27,18 +27,6 @@ class Assembly extends Application
 
         $this->render();
     }
-/*
-    public function detail($id)
-    {
-        // this is the view we want shown
-        $this->data['pagebody'] = 'justone';
-
-        // build the list of authors, to pass on to our view
-        $source = $this->parts->get($id);
-        $this->data = array_merge($this->data, $source);
-        $this->render();
-
-    }*/
 
     public function assemble(){
         $this->data['pagebody'] = 'assemblyView';

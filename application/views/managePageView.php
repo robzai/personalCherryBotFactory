@@ -28,9 +28,9 @@
 
         {robots}
         <div class="span4" style="text-align: center;">
-            <a href="/part/detail/{link}"><img src="/pix/parts/{top}.jpeg" /></a>
-            <a href="/part/detail/{link}"><img src="/pix/parts/{torso}.jpeg" /></a>
-            <a href="/part/detail/{link}"><img src="/pix/parts/{bottom}.jpeg" /></a>
+            <img src="/pix/parts/{top}.jpeg" />
+            <img src="/pix/parts/{torso}.jpeg" />
+            <img src="/pix/parts/{bottom}.jpeg" />
             <input type="radio" name="index" value="{id}"> {id}
         </div>
         {/robots}
